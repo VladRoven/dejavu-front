@@ -1,0 +1,16 @@
+{
+  "singleQuote": true,
+  "trailingComma": "es5",
+  "semi": true,
+  "arrowParens": "always",
+  "useTabs": false,
+  "tabWidth": 2,
+  "arrayExpand": true,
+  "printWidth": 100,
+  "bracketSpacing": true,
+  "bracketSameLine": false,
+  "sortingMethod": "alphabetical",
+  "stripNewlines": true,
+  "importTypeOrder": ["localImportsValue", "localImportsType", "NPMPackages"],
+  "plugins": ["./node_modules/prettier-plugin-sort-imports/dist/index.js"]
+}

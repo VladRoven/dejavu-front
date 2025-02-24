@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.home {
+  width: 100%;
+  height: 100vh;
+  background-color: #F5F5DC; /* Change to match second snippet */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 120px;
+  background-color: #826afb; /* Changed to match second snippet */
+  padding: 10px 40px;
+}
+
+.logo h1 {
+  font-size: 35px;
+  color: #F5F5DC;
+  font-weight: 600;
+}
+
+.header .navigation {
+  list-style: none;
+}
+
+.header .navigation ul li {
+  display: inline-block;
+  padding: 10px 40px;
+}
+
+.header .navigation ul li a {
+  color: #F5F5DC;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.header .btn {
+  padding: 10px 50px;
+}
+
+.header .btn button,
+.col button {
+  padding: 10px 30px;
+  background-color: #826afb; /* Changed to match second snippet */
+  border: none;
+  border-radius: 6px;
+  color: #F5F5DC;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.header .btn button:hover, .col button:hover {
+  background-color: #624ec6; /* Added hover effect for buttons */
+}
+
+.main {
+  display: flex;
+  height: 80%;
+  align-items: center;
+}
+
+.col {
+  flex-basis: 50%;
+}
+
+.col1 {
+  margin-left: 45px;
+}
+
+.col h2 {
+  font-size: 45px;
+  color: #333; /* Changed to match the color of text in the form */
+  font-weight: 600;
+}
+
+.col p {
+  font-size: 20px;
+  color: gray;
+  font-weight: 500;
+  margin-top: 20px;
+}
+
+.col button {
+  margin-top: 30px;
+}
+
+.card {
+  width: 200px;
+  height: 220px;
+  margin: 10px 15px;
+  padding: 15px 25px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
