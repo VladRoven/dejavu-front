@@ -117,3 +117,48 @@ code {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.slick-slider.slick-product .slick-list {
+  display: flex !important;
+  width: 100% !important;
+}
+
+.slick-slider.slick-product .slick-list .slick-track {
+  display: flex !important;
+}
+
+.slick-slider.slick-product .slick-list .slick-track .slick-slide {
+  display: flex !important;
+  align-items: center;
+}
+
+.slick-slider .slick-dots li {
+  width: fit-content;
+  height: fit-content;
+  margin: 0;
+}
+
+.slick-slider .slick-dots li:has(img):before {
+  content: '';
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  background: #6b6b6b;
+  opacity: 70%;
+  pointer-events: none;
+  transition: .2s;
+}
+
+.slick-slider .slick-dots li.slick-active:has(img):before {
+  opacity: 0;
+}
+
+.slick-slider .slick-dots li.slick-active button {
+  color: #836464 !important;
+}
+
+.slick-slider .slick-dots li.slick-active button svg {
+  transform: scale(1.5) !important;
+}

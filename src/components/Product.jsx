@@ -1,3 +1,4 @@
+import PageStore from '../stores/page.store';
 import { Routes } from '../utils/constants';
 import getEndpoint from '../utils/getEndpoint';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
@@ -20,14 +21,14 @@ const Product = (props) => {
             </IconButton>
             <IconButton
               color="secondary"
-              // onClick={() => {
-              //   PagesStore.setConfirmModal({
-              //     text: 'Are you sure you want to remove this product?',
-              //     confirmHandler: () => {
-              //       AdminStore.removeProduct(id);
-              //     },
-              //   });
-              // }}
+              onClick={() => {
+                PageStore.setConfirmModalParams({
+                  text: 'Are you sure you want to remove this product?',
+                  confirmHandler: () => {
+                    // AdminStore.removeProduct(id);
+                  },
+                });
+              }}
             >
               <DeleteOutlineIcon />
             </IconButton>

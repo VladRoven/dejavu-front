@@ -26,3 +26,8 @@ export const Routes = {
   Admin: '/admin',
   Products: '/products',
 };
+
+export const Genders = {
+  Female: 'FEMALE',
+  Male: 'MALE',
+};

@@ -1,8 +1,9 @@
 import '../assets/style.css';
+import { Routes } from '../utils/constants';
 import axios from 'axios';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Login() {
   const [username, setUsername] = useState('');
@@ -31,7 +32,7 @@ function Login() {
         <form onSubmit={handleLogin}>
           <div className="mb-3">
             <input
-              className="form-control"
+              className="field"
               placeholder="Username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
@@ -52,7 +53,7 @@ function Login() {
             Login
           </button>
           <p className="text-center mt-3">
-            Don't have an account? <a href="/signup">Sign Up</a>
+            Don't have an account? <Link to={Routes.SignUp}>Sign up</Link>
           </p>
         </form>
       </div>

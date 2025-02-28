@@ -1,8 +1,9 @@
 import '../assets/style.css';
+import { Routes } from '../utils/constants';
 import axios from 'axios';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Signup() {
   const [username, setUsername] = useState('');
@@ -114,7 +115,7 @@ function Signup() {
             Sign Up
           </button>
           <p className="text-center mt-3">
-            Already have an account? <a href="/login">Login</a>
+            Already have an account? <Link to={Routes.SignIn}>Login</Link>
           </p>
         </form>
       </div>

@@ -37,6 +37,24 @@ class CatalogStore {
       this.isLoading.products = false;
     }
   }
+
+  async getProduct(id) {
+    if (this.isLoading.product) {
+      return;
+    }
+
+    try {
+      const response = await CatalogApi.getProduct(id);
+
+      if (response.status === 200) {
+        this.product = response.data.data;
+      }
+    } catch (e) {
+      console.error(e.message);
+    } finally {
+      this.isLoading.product = false;
+    }
+  }
 }
 
 export default new CatalogStore();
