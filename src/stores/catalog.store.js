@@ -1,5 +1,6 @@
 import CatalogApi from '../API/catalog.api';
 import { CatalogSortBy, Sort } from '../utils/constants';
+import PageStore from './page.store';
 import { makeAutoObservable } from 'mobx';
 
 class CatalogStore {
@@ -9,13 +10,14 @@ class CatalogStore {
   isLoading = {
     product: false,
     products: false,
+    categories: false,
   };
 
   constructor() {
     makeAutoObservable(this);
   }
 
-  async getProducts() {
+  async getProducts(filters) {
     if (this.isLoading.products) {
       return;
     }
@@ -23,16 +25,18 @@ class CatalogStore {
     try {
       this.isLoading.products = true;
 
-      const response = await CatalogApi.getProducts({
-        sort: Sort.DESC,
-        sortBy: CatalogSortBy.Date,
-      });
+      const response = await CatalogApi.getProducts(
+        filters ?? {
+          sort: Sort.DESC,
+          sortBy: CatalogSortBy.Date,
+        }
+      );
 
       if (response.status === 200) {
         this.products = response.data.data.products;
       }
     } catch (e) {
-      console.error(e.message);
+      PageStore.errorHandler(e);
     } finally {
       this.isLoading.products = false;
     }
@@ -50,10 +54,36 @@ class CatalogStore {
         this.product = response.data.data;
       }
     } catch (e) {
-      console.error(e.message);
+      PageStore.errorHandler(e);
     } finally {
       this.isLoading.product = false;
     }
+  }
+
+  async getCategories() {
+    if (this.isLoading.categories) {
+      return;
+    }
+
+    try {
+      const response = await CatalogApi.getCategories();
+
+      if (response.status === 200) {
+        this.categories = response.data.data.categories;
+      }
+    } catch (e) {
+      PageStore.errorHandler(e);
+    } finally {
+      this.isLoading.product = false;
+    }
+  }
+
+  clearProduct() {
+    this.product = null;
+  }
+
+  clearProducts() {
+    this.products = [];
   }
 }
 

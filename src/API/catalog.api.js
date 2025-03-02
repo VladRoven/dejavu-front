@@ -8,6 +8,10 @@ class CatalogApi {
   async getProduct(id) {
     return AxiosAgent.get(`product/${id}`);
   }
+
+  async getCategories() {
+    return AxiosAgent.get('category/list-extended');
+  }
 }
 
 export default new CatalogApi();

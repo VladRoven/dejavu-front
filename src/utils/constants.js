@@ -31,3 +31,29 @@ export const Genders = {
   Female: 'FEMALE',
   Male: 'MALE',
 };
+
+export const ProductFormModes = {
+  Create: 'create',
+  Edit: 'edit',
+};
+
+export const FilterType = {
+  Radio: 'radio',
+  Date: 'date',
+  Input: 'input',
+  Checkbox: 'checkbox',
+};
+
+export const ProductSortBy = {
+  Price: 'PRICE',
+  Title: 'TITLE',
+  Featured: 'FEATURED',
+  Date: 'CREATE_DATE',
+};
+
+export const PopupTypes = {
+  Success: 'success',
+  Error: 'error',
+  Info: 'info',
+  Warning: 'warning',
+};

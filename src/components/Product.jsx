@@ -1,5 +1,6 @@
+import AdminStore from '../stores/admin.store';
 import PageStore from '../stores/page.store';
-import { Routes } from '../utils/constants';
+import { ProductFormModes, Routes } from '../utils/constants';
 import getEndpoint from '../utils/getEndpoint';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import ZoomInIcon from '@mui/icons-material/ZoomIn';
@@ -25,7 +26,7 @@ const Product = (props) => {
                 PageStore.setConfirmModalParams({
                   text: 'Are you sure you want to remove this product?',
                   confirmHandler: () => {
-                    // AdminStore.removeProduct(id);
+                    AdminStore.removeProduct(id);
                   },
                 });
               }}
@@ -66,10 +67,10 @@ const Product = (props) => {
             <Button
               variant="outlined"
               color="secondary"
-              // onClick={() => {
-              //   AdminStore.getProduct(id);
-              //   AdminStore.setProductFormMode(ProductFormModes.Edit);
-              // }}
+              onClick={() => {
+                AdminStore.getProduct(id);
+                AdminStore.setProductFormMode(ProductFormModes.Edit);
+              }}
               className="md:!text-base !text-xs w-full md:w-fit"
             >
               Edit

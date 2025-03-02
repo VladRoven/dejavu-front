@@ -1,7 +1,9 @@
 import NoData from '../components/NoData';
+import ProductForm from '../components/ProductForm';
+import AdminStore from '../stores/admin.store';
 import CatalogStore from '../stores/catalog.store';
 import PageStore from '../stores/page.store';
-import { Genders } from '../utils/constants';
+import { Genders, ProductFormModes } from '../utils/constants';
 import getEndpoint from '../utils/getEndpoint';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import FemaleIcon from '@mui/icons-material/Female';
@@ -40,10 +42,15 @@ export const ProductPage = observer(() => {
 
   useEffect(() => {
     CatalogStore.getProduct(id);
+
+    return () => {
+      CatalogStore.clearProduct();
+    };
   }, [id]);
 
   return (
     <Box className="grid grid-rows-1 min-h-svh">
+      <ProductForm />
       {!CatalogStore.product ? (
         <NoData isLoading={CatalogStore.isLoading.product} text="Product not found" />
       ) : (
@@ -67,7 +74,7 @@ export const ProductPage = observer(() => {
                     PageStore.setConfirmModalParams({
                       text: 'Are you sure you want to remove this product?',
                       confirmHandler: () => {
-                        // AdminStore.removeProduct(Number(id));
+                        AdminStore.removeProduct(id);
                       },
                     });
                   }}
@@ -101,10 +108,10 @@ export const ProductPage = observer(() => {
                 <Button
                   variant="contained"
                   color="secondary"
-                  // onClick={() => {
-                  //   AdminStore.getProduct(Number(id));
-                  //   AdminStore.setProductFormMode(ProductFormModes.Edit);
-                  // }}
+                  onClick={() => {
+                    AdminStore.getProduct(id);
+                    AdminStore.setProductFormMode(ProductFormModes.Edit);
+                  }}
                 >
                   Edit
                 </Button>
